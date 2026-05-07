@@ -1,0 +1,59 @@
+<div class="scenario-gallery">
+  <div class="tabs is-centered is-toggle is-small">
+    <ul>
+      <li class="is-active"><a href="#" data-scenario="asteroids">Asteroids</a></li>
+      <li class=""><a href="#" data-scenario="breakout">Breakout</a></li>
+      <li class=""><a href="#" data-scenario="frogger">Frogger</a></li>
+      <li class=""><a href="#" data-scenario="kong">Kong</a></li>
+      <li class=""><a href="#" data-scenario="platformer">Platformer</a></li>
+      <li class=""><a href="#" data-scenario="pong">Pong</a></li>
+      <li class=""><a href="#" data-scenario="racer">Racer</a></li>
+      <li class=""><a href="#" data-scenario="snake">Snake</a></li>
+    </ul>
+  </div>
+  <div class="scenario-panels">
+<div class="scenario-panel" data-scenario="asteroids" style="">
+  <img src="static/figures/scenario_asteroids.png" alt="Asteroids scenarios" style="width:100%; max-width:900px; margin:auto; display:block;">
+</div>
+<div class="scenario-panel" data-scenario="breakout" style="display:none;">
+  <img src="static/figures/scenario_breakout.png" alt="Breakout scenarios" style="width:100%; max-width:900px; margin:auto; display:block;">
+</div>
+<div class="scenario-panel" data-scenario="frogger" style="display:none;">
+  <img src="static/figures/scenario_frogger.png" alt="Frogger scenarios" style="width:100%; max-width:900px; margin:auto; display:block;">
+</div>
+<div class="scenario-panel" data-scenario="kong" style="display:none;">
+  <img src="static/figures/scenario_kong.png" alt="Kong scenarios" style="width:100%; max-width:900px; margin:auto; display:block;">
+</div>
+<div class="scenario-panel" data-scenario="platformer" style="display:none;">
+  <img src="static/figures/scenario_platformer.png" alt="Platformer scenarios" style="width:100%; max-width:900px; margin:auto; display:block;">
+</div>
+<div class="scenario-panel" data-scenario="pong" style="display:none;">
+  <img src="static/figures/scenario_pong.png" alt="Pong scenarios" style="width:100%; max-width:900px; margin:auto; display:block;">
+</div>
+<div class="scenario-panel" data-scenario="racer" style="display:none;">
+  <img src="static/figures/scenario_racer.png" alt="Racer scenarios" style="width:100%; max-width:900px; margin:auto; display:block;">
+</div>
+<div class="scenario-panel" data-scenario="snake" style="display:none;">
+  <img src="static/figures/scenario_snake.png" alt="Snake scenarios" style="width:100%; max-width:900px; margin:auto; display:block;">
+</div>
+  </div>
+</div>
+<script>
+(function() {
+  var gallery = document.currentScript.parentNode.querySelector(".scenario-gallery");
+  if (!gallery) return;
+  var tabs = gallery.querySelectorAll(".tabs li");
+  var panels = gallery.querySelectorAll(".scenario-panel");
+  tabs.forEach(function(tab) {
+    tab.querySelector("a").addEventListener("click", function(e) {
+      e.preventDefault();
+      var target = tab.querySelector("a").getAttribute("data-scenario");
+      tabs.forEach(function(t) { t.classList.remove("is-active"); });
+      tab.classList.add("is-active");
+      panels.forEach(function(p) {
+        p.style.display = (p.getAttribute("data-scenario") === target) ? "" : "none";
+      });
+    });
+  });
+})();
+</script>

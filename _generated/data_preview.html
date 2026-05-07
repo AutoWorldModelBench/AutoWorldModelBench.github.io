@@ -1,0 +1,94 @@
+<div class="preview-gallery">
+  <div class="tabs is-centered is-toggle is-small">
+    <ul>
+      <li class="is-active"><a href="#" data-preview="asteroids">Asteroids</a></li>
+      <li class=""><a href="#" data-preview="breakout">Breakout</a></li>
+      <li class=""><a href="#" data-preview="frogger">Frogger</a></li>
+      <li class=""><a href="#" data-preview="kong">Kong</a></li>
+      <li class=""><a href="#" data-preview="platformer">Platformer</a></li>
+      <li class=""><a href="#" data-preview="pong">Pong</a></li>
+      <li class=""><a href="#" data-preview="racer">Racer</a></li>
+      <li class=""><a href="#" data-preview="snake">Snake</a></li>
+    </ul>
+  </div>
+  <div class="preview-panels">
+<div class="preview-panel" data-preview="asteroids" style="">
+  <video controls preload="metadata" playsinline loop muted
+         src="static/videos/asteroids.mp4"
+         style="max-width:520px; width:100%; margin:auto; display:block; border-radius:8px; background:#000;">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+<div class="preview-panel" data-preview="breakout" style="display:none;">
+  <video controls preload="metadata" playsinline loop muted
+         src="static/videos/breakout.mp4"
+         style="max-width:520px; width:100%; margin:auto; display:block; border-radius:8px; background:#000;">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+<div class="preview-panel" data-preview="frogger" style="display:none;">
+  <video controls preload="metadata" playsinline loop muted
+         src="static/videos/frogger.mp4"
+         style="max-width:520px; width:100%; margin:auto; display:block; border-radius:8px; background:#000;">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+<div class="preview-panel" data-preview="kong" style="display:none;">
+  <video controls preload="metadata" playsinline loop muted
+         src="static/videos/kong.mp4"
+         style="max-width:520px; width:100%; margin:auto; display:block; border-radius:8px; background:#000;">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+<div class="preview-panel" data-preview="platformer" style="display:none;">
+  <video controls preload="metadata" playsinline loop muted
+         src="static/videos/platformer.mp4"
+         style="max-width:520px; width:100%; margin:auto; display:block; border-radius:8px; background:#000;">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+<div class="preview-panel" data-preview="pong" style="display:none;">
+  <video controls preload="metadata" playsinline loop muted
+         src="static/videos/pong.mp4"
+         style="max-width:520px; width:100%; margin:auto; display:block; border-radius:8px; background:#000;">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+<div class="preview-panel" data-preview="racer" style="display:none;">
+  <video controls preload="metadata" playsinline loop muted
+         src="static/videos/racer.mp4"
+         style="max-width:520px; width:100%; margin:auto; display:block; border-radius:8px; background:#000;">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+<div class="preview-panel" data-preview="snake" style="display:none;">
+  <video controls preload="metadata" playsinline loop muted
+         src="static/videos/snake.mp4"
+         style="max-width:520px; width:100%; margin:auto; display:block; border-radius:8px; background:#000;">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+  </div>
+</div>
+<script>
+(function() {
+  var g = document.currentScript.parentNode.querySelector(".preview-gallery");
+  if (!g) return;
+  var tabs = g.querySelectorAll(".tabs li");
+  var panels = g.querySelectorAll(".preview-panel");
+  tabs.forEach(function(tab) {
+    tab.querySelector("a").addEventListener("click", function(e) {
+      e.preventDefault();
+      var target = tab.querySelector("a").getAttribute("data-preview");
+      tabs.forEach(function(t) { t.classList.remove("is-active"); });
+      tab.classList.add("is-active");
+      panels.forEach(function(p) {
+        var on = p.getAttribute("data-preview") === target;
+        p.style.display = on ? "" : "none";
+        var v = p.querySelector("video");
+        if (v) { if (on) { v.play().catch(function(){}); } else { v.pause(); } }
+      });
+    });
+  });
+})();
+</script>
